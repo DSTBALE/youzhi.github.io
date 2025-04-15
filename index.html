@@ -9,6 +9,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .university-info h3 a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .university-info h3 a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .university-info h3 a:hover {
+            color: var(--hover-color);
+        }
+        
+        .university-info h3 a:hover::after {
+            width: 100%;
+        }
+
+        .university-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+        .university-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .university-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
 </head>
 <body>
     <!-- Main Hero Section with Image and Overlay Nav -->
@@ -42,132 +86,160 @@
         <div class="universities-grid">
             <!-- Top Tier (1-4) -->
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/Columbia.png" alt="Columbia University">
-                </div>
-                <div class="university-info">
-                    <h3>Columbia University</h3>
-                </div>
+                <a href="https://www.columbia.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/Columbia.png" alt="Columbia University">
+                    </div>
+                    <div class="university-info">
+                        <h3>Columbia University</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/UC_Berkeley.png" alt="UC Berkeley">
-                </div>
-                <div class="university-info">
-                    <h3>UC Berkeley</h3>
-                </div>
+                <a href="https://www.berkeley.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/UC_Berkeley.png" alt="UC Berkeley">
+                    </div>
+                    <div class="university-info">
+                        <h3>UC Berkeley</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/UCLA.png" alt="UCLA">
-                </div>
-                <div class="university-info">
-                    <h3>UCLA</h3>
-                </div>
+                <a href="https://www.ucla.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/UCLA.png" alt="UCLA">
+                    </div>
+                    <div class="university-info">
+                        <h3>UCLA</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/Rice.png" alt="Rice University">
-                </div>
-                <div class="university-info">
-                    <h3>Rice University</h3>
-                </div>
+                <a href="https://www.rice.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/Rice.png" alt="Rice University">
+                    </div>
+                    <div class="university-info">
+                        <h3>Rice University</h3>
+                    </div>
+                </a>
             </div>
 
             <!-- Second Tier (5-8) -->
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/Vanderbilt.png" alt="Vanderbilt University">
-                </div>
-                <div class="university-info">
-                    <h3>Vanderbilt University</h3>
-                </div>
+                <a href="https://www.vanderbilt.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/Vanderbilt.png" alt="Vanderbilt University">
+                    </div>
+                    <div class="university-info">
+                        <h3>Vanderbilt University</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/USC.png" alt="USC">
-                </div>
-                <div class="university-info">
-                    <h3>USC</h3>
-                </div>
+                <a href="https://www.usc.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/USC.png" alt="USC">
+                    </div>
+                    <div class="university-info">
+                        <h3>USC</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/Rochester.png" alt="University of Rochester">
-                </div>
-                <div class="university-info">
-                    <h3>University of Rochester</h3>
-                </div>
+                <a href="https://www.rochester.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/Rochester.png" alt="University of Rochester">
+                    </div>
+                    <div class="university-info">
+                        <h3>University of Rochester</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/UC_SanDiego.png" alt="UC San Diego">
-                </div>
-                <div class="university-info">
-                    <h3>UC San Diego</h3>
-                </div>
+                <a href="https://www.ucsd.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/UC_SanDiego.png" alt="UC San Diego">
+                    </div>
+                    <div class="university-info">
+                        <h3>UC San Diego</h3>
+                    </div>
+                </a>
             </div>
 
             <!-- Third Tier (9-12) -->
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/UC Santa Barbara.png" alt="UC Santa Barbara">
-                </div>
-                <div class="university-info">
-                    <h3>UC Santa Barbara</h3>
-                </div>
+                <a href="https://www.ucsb.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/UC Santa Barbara.png" alt="UC Santa Barbara">
+                    </div>
+                    <div class="university-info">
+                        <h3>UC Santa Barbara</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/UC_Irvine.png" alt="UC Irvine">
-                </div>
-                <div class="university-info">
-                    <h3>UC Irvine</h3>
-                </div>
+                <a href="https://uci.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/UC_Irvine.png" alt="UC Irvine">
+                    </div>
+                    <div class="university-info">
+                        <h3>UC Irvine</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/UC_Davis.png" alt="UC Davis">
-                </div>
-                <div class="university-info">
-                    <h3>UC Davis</h3>
-                </div>
+                <a href="https://www.ucdavis.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/UC_Davis.png" alt="UC Davis">
+                    </div>
+                    <div class="university-info">
+                        <h3>UC Davis</h3>
+                    </div>
+                </a>
             </div>
 
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/Brandeis.png" alt="Brandeis University">
-                </div>
-                <div class="university-info">
-                    <h3>Brandeis University</h3>
-                </div>
+                <a href="https://www.brandeis.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/Brandeis.png" alt="Brandeis University">
+                    </div>
+                    <div class="university-info">
+                        <h3>Brandeis University</h3>
+                    </div>
+                </a>
             </div>
 
             <!-- Fourth Tier (13-14) -->
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/University_of_Washington.png" alt="University of Washington">
-                </div>
-                <div class="university-info">
-                    <h3>University of Washington</h3>
-                </div>
+                <a href="https://www.washington.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/University_of_Washington.png" alt="University of Washington">
+                    </div>
+                    <div class="university-info">
+                        <h3>University of Washington</h3>
+                    </div>
+                </a>
             </div>
             
             <div class="university-card">
-                <div class="university-logo">
-                    <img src="images/university-logos/OSU.png" alt="The Ohio State University">
-                </div>
-                <div class="university-info">
-                    <h3>The Ohio State University</h3>
-                </div>
+                <a href="https://www.osu.edu/" target="_blank">
+                    <div class="university-logo">
+                        <img src="images/university-logos/OSU.png" alt="The Ohio State University">
+                    </div>
+                    <div class="university-info">
+                        <h3>The Ohio State University</h3>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
