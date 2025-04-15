@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Youzhi Garden</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Contact specific styles */
+        .contact-section {
+            padding: 4rem 5%;
+            margin: 0 auto;
+        }
+        
+        .contact-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .contact-heading h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--primary-color) 30%,
+                var(--primary-color) 70%,
+                transparent 100%);
+            transform: translateX(-50%);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+        
+        .contact-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            padding: 2rem;
+            z-index: 1;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.02) 100%);
+            z-index: -1;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .contact-card:hover::before {
+            background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.05) 100%);
+        }
+        
+        .contact-university {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.5rem 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: var(--primary-color);
+            border-radius: 0 0 0 10px;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+        
+        .contact-info {
+            margin-top: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+        
+        .contact-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-color);
+            transition: width 0.4s ease;
+        }
+        
+        .contact-card:hover .contact-name::after {
+            width: 100%;
+        }
+        
+        .contact-email {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        
+        .contact-email i {
+            margin-right: 0.8rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        .email-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        
+        .email-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .university-badge {
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+        
+        .university-badge i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .search-box i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+        }
+        
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .contact-heading h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Youzhi Garden</a>
+        <ul class="nav-links">
+            <li><a href="about.html"><span class="nav-text">About</span></a></li>
+            <li><a href="people.html"><span class="nav-text">People</span></a></li>
+            <li><a href="#photos"><span class="nav-text">Photo</span></a></li>
+            <li><a href="contact.html" class="active"><span class="nav-text">Contact</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Artistic connector between nav and content -->
+    <div class="artistic-connector"></div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-heading">
+            <h2>Connect With Us</h2>
+            <p>Reach out to us for collaboration or just to say hello!</p>
+        </div>
+        
+        <!-- Search and Filter -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search by name, university, or email...">
+            </div>
+        </div>
+        
+        <div class="contact-grid" id="contact-grid">
+            <!-- Shengtai Ding -->
+            <div class="contact-card" data-university="Vanderbilt">
+                <div class="contact-university">Vanderbilt University</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Shengtai Ding</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:shengtai.ding@vanderbilt.edu" class="email-link">shengtai.ding@vanderbilt.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>Vanderbilt University</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dongbin Hu -->
+            <div class="contact-card" data-university="UCD">
+                <div class="contact-university">UCD</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Dongbin Hu</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:tchudb@gmail.com" class="email-link">tchudb@gmail.com</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>UC Davis</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fan Lin -->
+            <div class="contact-card" data-university="OSU">
+                <div class="contact-university">OSU</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Fan Lin</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:lin.4094@buckeyemail.osu.edu" class="email-link">lin.4094@buckeyemail.osu.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>The Ohio State University</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Yihan Liu -->
+            <div class="contact-card" data-university="UCLA">
+                <div class="contact-university">UCLA</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Yihan Liu</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:yihanliu@g.ucla.edu" class="email-link">yihanliu@g.ucla.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>UCLA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Yiheng Lu -->
+            <div class="contact-card" data-university="Rochester">
+                <div class="contact-university">Rochester</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Yiheng Lu</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:yihenglu.0613@gmail.com" class="email-link">yihenglu.0613@gmail.com</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>University of Rochester</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Yuntao Shan -->
+            <div class="contact-card" data-university="UCSD">
+                <div class="contact-university">UCSD</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Yuntao Shan</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:joshan@ucsd.edu" class="email-link">joshan@ucsd.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>UC San Diego</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Xinyi Song -->
+            <div class="contact-card" data-university="UCI">
+                <div class="contact-university">UCI</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Xinyi Song</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:songx12@uci.edu" class="email-link">songx12@uci.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>UCI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Junyu Tao -->
+            <div class="contact-card" data-university="USC">
+                <div class="contact-university">USC</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Junyu Tao</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:junyutao@usc.edu" class="email-link">junyutao@usc.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>University of Southern California</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Qize Yang -->
+            <div class="contact-card" data-university="Rice">
+                <div class="contact-university">Rice</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Qize Yang</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:qy23@rice.edu" class="email-link">qy23@rice.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>Rice University</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Siyu Yang -->
+            <div class="contact-card" data-university="UCLA">
+                <div class="contact-university">UCLA</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Siyu Yang</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:siyuyang@g.ucla.edu" class="email-link">siyuyang@g.ucla.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>UCLA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Zhenni Yue -->
+            <div class="contact-card" data-university="Brandeis">
+                <div class="contact-university">Brandeis</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Zhenni Yue</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:zhenniyue@brandeis.edu" class="email-link">zhenniyue@brandeis.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>Brandeis University</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Caiyi Zhao -->
+            <div class="contact-card" data-university="Berkeley">
+                <div class="contact-university">UC Berkeley</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Caiyi Zhao</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:zcyrongbaer@berkeley.edu" class="email-link">zcyrongbaer@berkeley.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>UC Berkeley</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Yang Zhang -->
+            <div class="contact-card" data-university="Rochester">
+                <div class="contact-university">Rochester</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Yang Zhang</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:Justinyzh0120@outlook.com" class="email-link">Justinyzh0120@outlook.com</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>University of Rochester</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rongrong Zhu -->
+            <div class="contact-card" data-university="Washington">
+                <div class="contact-university">UW</div>
+                <div class="contact-info">
+                    <h3 class="contact-name">Rongrong Zhu</h3>
+                    <div class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:rzhu2@uw.edu" class="email-link">rzhu2@uw.edu</a>
+                    </div>
+                    <div class="university-badge">
+                        <i class="fas fa-university"></i>
+                        <span>University of Washington</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 SSFL High School Alumni. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const contactCards = document.querySelectorAll('.contact-card');
+            
+            // Search function
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                contactCards.forEach(card => {
+                    const name = card.querySelector('.contact-name').textContent.toLowerCase();
+                    const email = card.querySelector('.email-link').textContent.toLowerCase();
+                    const university = card.querySelector('.university-badge span').textContent.toLowerCase();
+                    
+                    if (name.includes(searchTerm) || email.includes(searchTerm) || university.includes(searchTerm)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Card hover effect with slight rotation
+            contactCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element
+                    const y = e.clientY - rect.top;  // y position within the element
+                    
+                    // Calculate rotation based on mouse position
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
