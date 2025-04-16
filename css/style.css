@@ -135,7 +135,7 @@ p {
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
-    padding: 5px 2px;
+    padding: 5px 10px;
     display: inline-block;
     transition: all 0.4s ease;
     transform-style: preserve-3d;
@@ -172,25 +172,24 @@ p {
         transparent 100%);
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+    transform: translateY(-2px);
+    text-shadow: none;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
 .nav-links a.active {
     transform: translateY(-2px);
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 .nav-links a:hover::before,
-.nav-links a.active::before {
-    visibility: visible;
-    opacity: 0.7;
-    transform: scaleX(0.8) translateY(0);
-}
-
 .nav-links a:hover::after,
+.nav-links a.active::before,
 .nav-links a.active::after {
-    visibility: visible;
-    opacity: 1;
-    transform: scaleX(0.4);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    visibility: hidden;
+    opacity: 0;
 }
 
 .nav-links a .nav-text {
